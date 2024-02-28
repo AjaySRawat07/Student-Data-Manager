@@ -7,7 +7,7 @@ function showAbout() {
 }
 
 function showContact() {
-  document.querySelector('.main-content').innerHTML = "<h2>Contact Us</h2><p>contact us.. 730******49</p>";
+  document.querySelector('.main-content').innerHTML = "<h2>Contact Us</h2><p>Contact no. 730******49</p>";
 }
 
 // Student Form
