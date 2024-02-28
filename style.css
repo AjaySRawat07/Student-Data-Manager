@@ -1,0 +1,76 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  margin: 0;
+}
+
+.sidebar {
+  background-color: #d49b9b;
+  color: white;
+  width: 250px;
+  padding: 20px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.navbar li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.navbar li a:hover {
+  background-color: #000000;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.student-sidebar {
+  margin-top: 20px;
+}
+
+.student-sidebar a {
+  display: block;
+  color: #42424233;
+  padding: 10px;
+  margin-bottom: 5px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.student-sidebar a:hover {
+  background-color: #bfbfbf;
+}
+
+.student-details {
+  padding: 20px;
+  background-color: #e4bebe;
+  border-radius: 5px;
+}
+
+.delete-btn {
+  background-color: #cbcbcb;
+  color: rgb(18, 13, 13);
+  border: none;
+  padding: 5px 10px;
+  margin: 2px;
+  cursor: pointer;
+  border: 2px solid black;
+  border-radius: 3px;
+}
