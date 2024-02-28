@@ -9,7 +9,8 @@ function showAbout() {
 function showContact() {
   document.querySelector('.main-content').innerHTML = "<h2>Contact Us</h2><p>contact us.. 730******49</p>";
 }
-// stud. form 
+
+// Student Form
 function showStudentForm() {
   let form = `
     <div class="student-form">
@@ -39,18 +40,16 @@ function showStudentForm() {
   `;
   document.querySelector('.main-content').innerHTML = form;
 
-  
   document.getElementById('studentForm').addEventListener('submit', function(event) {
     event.preventDefault();
     addStudent();
   });
 
-
   let students = JSON.parse(localStorage.getItem('students')) || [];
   updateStudentSidebar(students);
 }
 
-// add student details
+
 function addStudent() {
   let studentName = document.getElementById('studentName').value;
   let studentId = document.getElementById('studentId').value;
@@ -66,26 +65,15 @@ function addStudent() {
     address: address
   };
 
-  
   let students = JSON.parse(localStorage.getItem('students')) || [];
-
-  
   students.push(student);
-
-  
   localStorage.setItem('students', JSON.stringify(students));
-
-  
   updateStudentList(students);
-
-
   document.getElementById('studentForm').reset();
-
- 
   updateStudentSidebar(students);
 }
 
-
+// Update List
 function updateStudentList(students) {
   let studentList = document.querySelector('.student-list');
   studentList.innerHTML = '';
@@ -101,22 +89,23 @@ function updateStudentList(students) {
   });
 }
 
-// delete studentData
+// Delete Details
 function deleteStudent(index) {
   let students = JSON.parse(localStorage.getItem('students')) || [];
 
-  students.splice(index, 1);
+  let confirmDelete = window.confirm("Are you sure you want to delete details??");
 
-  // save in localstore
-  localStorage.setItem('students', JSON.stringify(students));
-
-  updateStudentList(students);
-
-  updateStudentSidebar(students);
-
-  clearStudentDetails();
+  if (confirmDelete) {
+    students.splice(index, 1);
+    localStorage.setItem('students', JSON.stringify(students));
+    updateStudentList(students);
+    updateStudentSidebar(students);
+    clearStudentDetails();
+    window.alert("Student details deleted");
+  }
 }
 
+// Update
 function updateStudentSidebar(students) {
   let studentSidebar = document.getElementById('studentSidebar');
   studentSidebar.innerHTML = '';
@@ -133,12 +122,11 @@ function updateStudentSidebar(students) {
   });
 }
 
-
+// Show Student Details
 function showStudentDetails(index) {
   let students = JSON.parse(localStorage.getItem('students')) || [];
   let student = students[index];
 
-  // student deatil form
   let studentDetails = `
     <div class="student-details">
       <h2>${student.name}</h2>
@@ -153,7 +141,7 @@ function showStudentDetails(index) {
   document.querySelector('.main-content').innerHTML = studentDetails;
 }
 
-
+// Clear Student Details
 function clearStudentDetails() {
   document.querySelector('.main-content').innerHTML = '';
 }
